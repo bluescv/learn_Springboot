@@ -1,5 +1,7 @@
 package io.bluescv.springboot.repo;
 
+import io.bluescv.springboot.mbtest.domain.User;
+import io.bluescv.springboot.mbtest.domain.UserMapper;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,34 +20,18 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @Rollback()
-public class UserServiceImplTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class UserMapperTest extends AbstractTransactionalJUnit4SpringContextTests {
 
 
     @Autowired
-    @Qualifier("user2")
-    private UserService userService;
+    private UserMapper userMapper;
 
     @Test
-    @Rollback(false)
-    public void test() throws Exception {
-        // 插入5个用户
-        userService.create("a", 1);
-        userService.create("b", 2);
-        userService.create("c", 3);
-        userService.create("d", 4);
-        userService.create("e", 5);
-
-        // 查数据库，应该有5个用户
-        Assert.assertEquals(5, userService.getAllUsers().intValue());
-
-        // 删除两个用户
-        userService.deleteByName("a");
-        userService.deleteByName("e");
-
-        // 查数据库，应该有3个用户
-        Assert.assertEquals(3, userService.getAllUsers().intValue());
-
-
+    @Rollback
+    public void findByName() throws Exception {
+        userMapper.insert("AAA", 20);
+        User u = userMapper.findByName("AAA");
+        Assert.assertEquals(20, u.getAge().intValue());
     }
 
 
