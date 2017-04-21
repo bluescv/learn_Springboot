@@ -25,5 +25,5 @@ public interface UserService {
      */
     void deleteAllUsers();
 
-
+    void testUsers();
 }

@@ -4,15 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-@Service
-public class UserServiceImpl implements UserService {
+@Service("user2")
+public class UserServiceImpl2 implements UserService {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
     public void create(String name, Integer age) {
-        jdbcTemplate.update("insert into USER(NAME, AGE) values(?, ?)", name, age);
+        jdbcTemplate.update("insert into USER(NAME, AGE) values(?, 100)", name);
     }
 
     @Override
@@ -31,7 +31,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    //test JdbcTemplate
     public void testUsers() {
-
+        jdbcTemplate.execute("SELECT * FROM USER");
     }
 }
