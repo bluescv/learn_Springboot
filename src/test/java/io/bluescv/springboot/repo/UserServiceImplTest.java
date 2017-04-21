@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
@@ -15,7 +17,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class UserServiceImplTest {
+@Rollback()
+public class UserServiceImplTest extends AbstractTransactionalJUnit4SpringContextTests {
 
 
     @Autowired
@@ -39,6 +42,7 @@ public class UserServiceImplTest {
 
         // 查数据库，应该有3个用户
         Assert.assertEquals(3, userSerivce.getAllUsers().intValue());
+
 
     }
 
