@@ -48,4 +48,27 @@ public class UserMapperServiceTest extends AbstractTransactionalJUnit4SpringCont
     }
 
 
+    @Test
+    @Rollback(false)
+    public void test3() {
+        try {
+            userMapperService.testTransactionalInOneClass();
+        } catch (Exception e) {
+            System.out.println("Caught exception");
+        }
+
+    }
+
+
+    @Test
+    @Rollback(false)
+    public void test4() {
+        try {
+            userMapperService.testTransactionalInDifferentClass();
+        } catch (Exception e) {
+            System.out.println("Caught exception");
+        }
+
+    }
+
 }
