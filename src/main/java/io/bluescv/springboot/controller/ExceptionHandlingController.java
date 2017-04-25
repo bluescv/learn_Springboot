@@ -36,9 +36,10 @@ public class ExceptionHandlingController {
     }
 
     @RequestMapping(value = "/DataIntegrityViolationException")
-    public String methodThatThrowsDataIntegrityViolationException() throws DataIntegrityViolationException {
+    public String methodThatThrowsDataIntegrityViolationException() throws Exception {
         System.out.println("inside method methodThatThrowsDataIntegrityViolationException()");
-        throw new DataIntegrityViolationException("abc");
+//        throw new DataIntegrityViolationException("abc");
+        throw new Exception();
     }
 
 
