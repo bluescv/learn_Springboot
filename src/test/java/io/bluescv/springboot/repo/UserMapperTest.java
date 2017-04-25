@@ -27,7 +27,7 @@ public class UserMapperTest extends AbstractTransactionalJUnit4SpringContextTest
     private UserMapper userMapper;
 
     @Test
-    @Rollback(false)
+//    @Rollback(false)
     public void findByName() throws Exception {
         userMapper.insert("AAA", 20);
         User u = userMapper.findByName("AAA");

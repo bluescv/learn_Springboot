@@ -26,7 +26,7 @@ public class UserServiceImplTest extends AbstractTransactionalJUnit4SpringContex
     private UserService userService;
 
     @Test
-    @Rollback(false)
+//    @Rollback(false)
     public void test() throws Exception {
         // 插入5个用户
         userService.create("a", 1);

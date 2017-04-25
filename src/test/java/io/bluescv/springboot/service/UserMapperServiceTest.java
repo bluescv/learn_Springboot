@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -20,7 +19,7 @@ public class UserMapperServiceTest extends AbstractTransactionalJUnit4SpringCont
     UserMapperService userMapperService;
 
     @Test
-    @Rollback(false)
+//    @Rollback(false)
     public void test() {
         try {
             userMapperService.testInsertTransactionUsingAnnotation();
@@ -32,7 +31,7 @@ public class UserMapperServiceTest extends AbstractTransactionalJUnit4SpringCont
 
 
     @Test
-    @Rollback(false)
+//    @Rollback(false)
     public void test2() {
         try {
             userMapperService.testInsertTransactionManully();
@@ -44,7 +43,7 @@ public class UserMapperServiceTest extends AbstractTransactionalJUnit4SpringCont
 
 
     @Test
-    @Rollback(false)
+//    @Rollback(false)
     public void test3() {
         try {
             userMapperService.testTransactionalInOneClass();
@@ -56,7 +55,7 @@ public class UserMapperServiceTest extends AbstractTransactionalJUnit4SpringCont
 
 
     @Test
-    @Rollback(false)
+//    @Rollback(false)
     public void test4() {
         try {
             userMapperService.testTransactionalInDifferentClass();
@@ -68,7 +67,7 @@ public class UserMapperServiceTest extends AbstractTransactionalJUnit4SpringCont
 
 
     @Test
-    @Rollback(false)
+//    @Rollback(false)
     public void test5() {
         try {
             userMapperService.testAsOuterMethod();
