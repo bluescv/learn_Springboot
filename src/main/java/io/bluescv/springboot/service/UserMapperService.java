@@ -66,6 +66,17 @@ public class UserMapperService {
 
     }
 
+    public void testAsOuterMethod() {
+        try {
+//            testTransactionalInOneClass();
+            testTransactionalInDifferentClass();
+        } catch (Exception e) {
+            System.out.println("Caught exception in top level method");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 
 }
 
@@ -75,7 +86,8 @@ class InnerClass {
     @Autowired
     private UserMapper userMapper;
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    //    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional()
     public void testTransactionalInOneClassInner() {
         System.out.println("Performing some persist op inner");
         userMapper.insert("testname6", 60);

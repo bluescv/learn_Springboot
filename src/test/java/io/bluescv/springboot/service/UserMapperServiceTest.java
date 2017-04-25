@@ -1,8 +1,5 @@
 package io.bluescv.springboot.service;
 
-import io.bluescv.springboot.mbtest.domain.User;
-import io.bluescv.springboot.mbtest.domain.UserMapper;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by bluescv on 4/24/17.
@@ -65,6 +60,18 @@ public class UserMapperServiceTest extends AbstractTransactionalJUnit4SpringCont
     public void test4() {
         try {
             userMapperService.testTransactionalInDifferentClass();
+        } catch (Exception e) {
+            System.out.println("Caught exception");
+        }
+
+    }
+
+
+    @Test
+    @Rollback(false)
+    public void test5() {
+        try {
+            userMapperService.testAsOuterMethod();
         } catch (Exception e) {
             System.out.println("Caught exception");
         }
