@@ -11,7 +11,7 @@ public class HelloController {
 
     @RequestMapping
     public String index() throws Exception {
-        throw new Exception("发生错误");
-//        return "haha";
+//        throw new Exception("发生错误");
+        return "haha";
     }
 }
